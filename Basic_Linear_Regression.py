@@ -15,7 +15,7 @@ theta1 = 0
 alpha = 0.01
 h = lambda x: theta0 + theta1 * x*x
 
-
+# define the function to create the graph
 def plot_line(y, data_points):
     graph_width = [i for i in range(int(min(data_points)) - 1, int(max(data_points)) + 2)]
     graph_height = [y(x) for x in graph_width]
