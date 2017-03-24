@@ -33,7 +33,7 @@ temp4 = 0
 temp5 = 0
 temp6 = 0
 alpha = 8  # Learning rate
-iterations = 10000  # number of iterations
+iterations = 10000  # number of iterations, This variable is not used in this example, it's declaration is actually useless.
 gd_threshold = 0.00001  # when Gradient Descent passes this threshold, the algorithm will stop.
 
 # defining the hypothesis function
@@ -115,6 +115,7 @@ mean_normalization(target_output)
 sum = 1
 numofit = 0  # a counter for the number of iterations
 
+# apply gradient descent until the sum of the changes of alpha is smaller then the defined threshold of 0.00001
 while sum > gd_threshold:
     temp0, temp1, temp2, temp3, temp4, temp5, temp6 = gradient_descent(h, training_set, target_output)
     sum = float(abs(temp0 + temp1 + temp2 + temp3 + temp4 + temp5 + temp6))
@@ -128,7 +129,7 @@ while sum > gd_threshold:
     theta[5] = theta[5] - alpha * temp5
     theta[6] = theta[6] - alpha * temp6
 
-new_cost = cost_function(h, training_set, target_output)
+new_cost = cost_function(h, training_set, target_output) # calculate the new cost after Gradient Descent was applied
 print(new_cost)
 change_in_cost = change(old_cost, new_cost)
 print('The cost function decreased with: %.2f' % change_in_cost + '%')
